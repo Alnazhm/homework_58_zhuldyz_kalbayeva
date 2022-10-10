@@ -18,4 +18,4 @@ class Tasks(models.Model):
     updated_at = models.DateTimeField(verbose_name='Время изменения', auto_now=True)
 
     def __str__(self):
-        return f"{self.summary} - {self.type} - {self.status}"
+        return f"{self.summary} - {self.type.name} - {self.status}"
