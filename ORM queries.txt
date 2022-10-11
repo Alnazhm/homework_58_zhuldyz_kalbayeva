@@ -2,6 +2,6 @@
 2.Tasks.objects.filter(Q(status__in=(1,2)) & Q(type__in=(1,2)))
 3.Tasks.objects.filter(Q(summary__icontains='bug') | Q(type=3)).exclude(status=3)
 Бонусные задачи:
-1.Tasks.objects.all().values('id','summary','type','status')
+1.Tasks.objects.all().values('id','summary','type__name','status__name')
 2.Tasks.objects.filter(summary=F('description'))
 3.Tasks.objects.all().values('type').annotate(total=Count('type'))
