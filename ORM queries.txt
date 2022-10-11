@@ -1,6 +1,6 @@
-1. Tasks.objects.filter(updated_at__gte=now()-timedelta(days=30), status=3)
+1. Tasks.objects.filter(updated_at__gte=now()-timedelta(days=30), status__name='Done')
 2.Tasks.objects.filter(Q(status__in=(1,2)) & Q(type__in=(1,2)))
-3.Tasks.objects.filter(Q(summary__icontains='bug') | Q(type=3)).exclude(status=3)
+3.Tasks.objects.filter(Q(summary__icontains='bug') | Q(type__name='Bug')).exclude(status__name='Done')
 Бонусные задачи:
 1.Tasks.objects.all().values('id','summary','type__name','status__name')
 2.Tasks.objects.filter(summary=F('description'))
